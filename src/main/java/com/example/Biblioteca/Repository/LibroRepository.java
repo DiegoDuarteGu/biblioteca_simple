@@ -63,24 +63,26 @@ public class LibroRepository {
     }
 
     public void eliminar(int id){
+        //1
         Libro libro = buscarPorId(id);
         if (libro != null){
             listaLibros.remove(libro);
         }
 
+        //2
         int idPosicion = 0;
-        for (int i = 0; i < listaLibros.size();i++){
-            if(listaLibros.get(i).getId() == id){
+        for (int i = 0; i < listaLibros.size(); i++){
+            if(listaLibros.get(i).getId() == id ){
                 idPosicion = i;
                 break;
             }
         }
-        if (id > 0){
+        if (idPosicion > 0){
             listaLibros.remove(idPosicion);
         }
 
+        //3
         listaLibros.removeIf(x -> x.getId() == id);
     }
-    
 
 }
